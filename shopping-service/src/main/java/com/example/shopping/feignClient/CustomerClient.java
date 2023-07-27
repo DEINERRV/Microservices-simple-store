@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.shopping.dto.Customer;
 
-@FeignClient(name = "microservice-customer", path = "/customers")
+@FeignClient(name = "microservice-customer", path = "/customers", fallback = CustomerFallback.class)
 public interface CustomerClient {
     
     @GetMapping("/{id}")

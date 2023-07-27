@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.shopping.dto.Product;
 
-@FeignClient(name = "microservice-product", path = "/products")
+@FeignClient(name = "microservice-product", path = "/products", fallback = ProductFallback.class)
 public interface ProductClient {
     
     @GetMapping("/{id}")
